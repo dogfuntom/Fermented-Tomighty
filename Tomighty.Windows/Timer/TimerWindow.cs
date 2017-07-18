@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Tomighty.Windows.Timer
 {
-    public partial class TimerWindow : Form
+    public partial class TimerWindow : BaseWindow
     {
         public static readonly Color DarkGray = Color.FromArgb(41, 41, 41);
         public static readonly Color Red = Color.FromArgb(168, 32, 41);

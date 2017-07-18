@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Tomighty.Windows
 {
-    public partial class ErrorReportWindow : Form
+    public partial class ErrorReportWindow : BaseWindow
     {
         public ErrorReportWindow(Exception exception)
         {

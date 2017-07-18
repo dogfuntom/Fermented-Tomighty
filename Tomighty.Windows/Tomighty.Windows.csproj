@@ -87,6 +87,9 @@
     </Compile>
     <Compile Include="About\AboutWindowPresenter.cs" />
     <Compile Include="AutoUpdate.cs" />
+    <Compile Include="BaseWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Directories.cs" />
     <Compile Include="ErrorReportWindow.cs">
       <SubType>Form</SubType>
