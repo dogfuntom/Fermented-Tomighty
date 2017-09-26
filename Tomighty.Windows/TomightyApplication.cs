@@ -24,7 +24,7 @@ namespace Tomighty.Windows
             var timer = new Tomighty.Timer(eventHub);
             var userPreferences = new UserPreferences();
             var pomodoroEngine = new PomodoroEngine(timer, userPreferences, eventHub);
-            var redButton = new RedButtonController(eventHub);
+            var redButton = new RedButtonController(timer, pomodoroEngine, eventHub);
 
             var trayMenu = new TrayMenu() as ITrayMenu;
             var trayIcon = CreateTrayIcon(trayMenu);
