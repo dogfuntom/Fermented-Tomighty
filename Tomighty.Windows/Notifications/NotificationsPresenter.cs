@@ -24,8 +24,14 @@ namespace Tomighty.Windows.Notifications
             eventHub.Subscribe<TimerStopped>(OnTimerStopped);
             eventHub.Subscribe<AppUpdated>(OnAppUpdated);
             eventHub.Subscribe<FirstRun>(OnFirstRun);
+            eventHub.Subscribe<RedButtonConnectionChanged>(OnRedButtonConnectionChanged);
         }
 
+        private void OnRedButtonConnectionChanged(RedButtonConnectionChanged @event) 
+        {
+            toastNotifier.Show(Toasts.RedButtonConnectionChanged(@event.Connected));
+        }
+        
         private void OnFirstRun(FirstRun @event)
         {
             var toast = Toasts.FirstRun();

@@ -25,6 +25,15 @@ namespace Tomighty.Windows.Notifications
         private static readonly XmlDocument FirstRunTemplate = ToXmlDocument(Properties.Resources.toast_template_first_run.Replace("{image_src}", RedTomatoImage));
         private static readonly XmlDocument AppUpdatedTemplate = ToXmlDocument(Properties.Resources.toast_template_app_updated.Replace("{image_src}", RedTomatoImage));
 
+
+        public static ToastNotification RedButtonConnectionChanged(bool connected) 
+        {
+            string status = connected ? "Connected  \\(‘ ∇‘ )/" : "Connection Failed  Т_Т";
+            return new ToastNotification(ToXmlDocument(Properties.Resources.toast_template_redButtonConnection
+                .Replace("{image_src}", RedTomatoImage)
+                .Replace("{status}", status)));
+        }
+
         public static ToastNotification FirstRun()
         {
             return new ToastNotification(FirstRunTemplate);

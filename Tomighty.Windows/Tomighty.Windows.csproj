@@ -169,6 +169,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Toasts\red-button-connection.xml" />
     <None Include="Resources\icon_tomato_black.ico" />
     <None Include="Resources\icon_tomato_blue.ico" />
     <None Include="Resources\icon_tomato_green.ico" />
