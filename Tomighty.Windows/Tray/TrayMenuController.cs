@@ -9,6 +9,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tomighty.Events;
+using Tomighty.Windows.RedButton;
 
 namespace Tomighty.Windows.Tray
 {
@@ -58,6 +59,7 @@ namespace Tomighty.Windows.Tray
 
         private void OnExitClick(object sender, EventArgs e)
         {
+            redButton.Disconnect();
             app.ExitThread();
         }
 

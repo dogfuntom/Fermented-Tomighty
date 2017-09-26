@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Tomighty.Windows.About;
 using Tomighty.Windows.Notifications;
 using Tomighty.Windows.Preferences;
+using Tomighty.Windows.RedButton;
 using Tomighty.Windows.Timer;
 using Tomighty.Windows.Tray;
 

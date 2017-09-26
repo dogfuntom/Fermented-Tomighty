@@ -57,6 +57,9 @@
     <ApplicationIcon>Resources\icon_tomato_red.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="M2Mqtt.Net, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\M2Mqtt.4.3.0.0\lib\net45\M2Mqtt.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Toolkit.Uwp.Notifications, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Toolkit.Uwp.Notifications.1.0.0\lib\dotnet\Microsoft.Toolkit.Uwp.Notifications.dll</HintPath>
       <Private>True</Private>
@@ -101,6 +104,7 @@
     <Compile Include="Notifications\SoundNotificationPlayer.cs" />
     <Compile Include="Preferences\UserPreferencesPresenter.cs" />
     <Compile Include="Flags.cs" />
+    <Compile Include="RedButton\MQTTClient.cs" />
     <Compile Include="RedButton\RedButtonController.cs" />
     <Compile Include="StartupEventFlags.cs" />
     <Compile Include="StartupEvents.cs" />
