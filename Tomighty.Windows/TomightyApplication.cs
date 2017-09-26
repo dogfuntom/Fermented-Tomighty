@@ -23,13 +23,14 @@ namespace Tomighty.Windows
             var timer = new Tomighty.Timer(eventHub);
             var userPreferences = new UserPreferences();
             var pomodoroEngine = new PomodoroEngine(timer, userPreferences, eventHub);
+            var redButton = new RedButtonController(eventHub);
 
             var trayMenu = new TrayMenu() as ITrayMenu;
             var trayIcon = CreateTrayIcon(trayMenu);
             var timerWindowPresenter = new TimerWindowPresenter(pomodoroEngine, timer, eventHub);
 
             new TrayIconController(trayIcon, timerWindowPresenter, eventHub);
-            new TrayMenuController(trayMenu, this, pomodoroEngine, eventHub);
+            new TrayMenuController(trayMenu, this, pomodoroEngine, eventHub, redButton);
             new NotificationsPresenter(pomodoroEngine, userPreferences, eventHub);
             new SoundNotificationPlayer(userPreferences, eventHub);
             new AutoUpdate(userPreferences).Start();

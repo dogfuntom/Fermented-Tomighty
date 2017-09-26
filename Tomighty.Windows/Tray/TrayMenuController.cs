@@ -18,17 +18,21 @@ namespace Tomighty.Windows.Tray
         private readonly ApplicationContext app;
         private readonly IPomodoroEngine pomodoroEngine;
 
-        public TrayMenuController(ITrayMenu menu, ApplicationContext app, IPomodoroEngine pomodoroEngine, IEventHub eventHub)
+        private readonly RedButtonController redButton;
+
+        public TrayMenuController(ITrayMenu menu, ApplicationContext app, IPomodoroEngine pomodoroEngine, IEventHub eventHub, RedButtonController redButton)
         {
             this.menu = menu;
             this.app = app;
             this.pomodoroEngine = pomodoroEngine;
+            this.redButton = redButton;
 
             menu.OnStartPomodoroClick(OnStartPomodoroClick);
             menu.OnStartLongBreakClick(OnStartLongBreakClick);
             menu.OnStartShortBreakClick(OnStartShortBreakClick);
             menu.OnStopTimerClick(OnStopTimerClick);
             menu.OnResetPomodoroCountClick(OnResetPomodoroCountClick);
+            menu.OnRedButtonConnectClick(OnRedButtonConnect);
             menu.OnExitClick(OnExitClick);
 
             eventHub.Subscribe<TimerStarted>(OnTimerStarted);
@@ -43,6 +47,8 @@ namespace Tomighty.Windows.Tray
                 mutator.EnableStopTimerItem(false);
             });
         }
+
+        private void OnRedButtonConnect(object sender, EventArgs e) => Task.Run(() => redButton.Connect());
 
         private void OnStartPomodoroClick(object sender, EventArgs e) => StartTimer(IntervalType.Pomodoro);
         private void OnStartLongBreakClick(object sender, EventArgs e) => StartTimer(IntervalType.LongBreak);

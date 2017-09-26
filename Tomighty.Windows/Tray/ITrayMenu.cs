@@ -21,6 +21,7 @@ namespace Tomighty.Windows.Tray
         void OnStartShortBreakClick(EventHandler handler);
         void OnStopTimerClick(EventHandler handler);
         void OnResetPomodoroCountClick(EventHandler handler);
+        void OnRedButtonConnectClick(EventHandler handler);
         void OnExitClick(EventHandler handler);
         void Update(Action<ITrayMenuMutator> action);
     }

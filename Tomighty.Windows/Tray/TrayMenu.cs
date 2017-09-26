@@ -18,6 +18,7 @@ namespace Tomighty.Windows.Tray
         private readonly ToolStripMenuItem stopTimerItem;
         private readonly ToolStripMenuItem pomodoroCountItem;
         private readonly ToolStripMenuItem resetPomodoroCountItem;
+        private readonly ToolStripMenuItem redButtonConnectItem;
         private readonly ToolStripMenuItem startPomodoroItem;
         private readonly ToolStripMenuItem startShortBreakItem;
         private readonly ToolStripMenuItem startLongBreakItem;
@@ -39,6 +40,9 @@ namespace Tomighty.Windows.Tray
             resetPomodoroCountItem = new ToolStripMenuItem("Reset count");
             resetPomodoroCountItem.Enabled = false;
 
+            redButtonConnectItem = new ToolStripMenuItem("Connect to the Red Button");
+            redButtonConnectItem.Enabled = true;
+
             startPomodoroItem = new ToolStripMenuItem("Pomodoro", Properties.Resources.image_tomato_red);
             startShortBreakItem = new ToolStripMenuItem("Short break", Properties.Resources.image_tomato_green);
             startLongBreakItem = new ToolStripMenuItem("Long break", Properties.Resources.image_tomato_blue);
@@ -53,6 +57,8 @@ namespace Tomighty.Windows.Tray
             contextMenu.Items.Add(new ToolStripSeparator());
             contextMenu.Items.Add(pomodoroCountItem);
             contextMenu.Items.Add(resetPomodoroCountItem);
+            contextMenu.Items.Add(new ToolStripSeparator());
+            contextMenu.Items.Add(redButtonConnectItem);
             contextMenu.Items.Add(new ToolStripSeparator());
             contextMenu.Items.Add(startPomodoroItem);
             contextMenu.Items.Add(startShortBreakItem);
@@ -71,6 +77,7 @@ namespace Tomighty.Windows.Tray
         public void OnStartShortBreakClick(EventHandler handler) => startShortBreakItem.Click += handler;
         public void OnStopTimerClick(EventHandler handler) => stopTimerItem.Click += handler;
         public void OnResetPomodoroCountClick(EventHandler handler) => resetPomodoroCountItem.Click += handler;
+        public void OnRedButtonConnectClick(EventHandler handler) => redButtonConnectItem.Click += handler;
         public void OnAboutClick(EventHandler handler) => aboutItem.Click += handler;
         public void OnPreferencesClick(EventHandler handler) => preferencesItem.Click += handler;
         public void OnExitClick(EventHandler handler) => exitItem.Click += handler;

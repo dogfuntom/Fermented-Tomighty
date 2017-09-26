@@ -101,6 +101,7 @@
     <Compile Include="Notifications\SoundNotificationPlayer.cs" />
     <Compile Include="Preferences\UserPreferencesPresenter.cs" />
     <Compile Include="Flags.cs" />
+    <Compile Include="RedButton\RedButtonController.cs" />
     <Compile Include="StartupEventFlags.cs" />
     <Compile Include="StartupEvents.cs" />
     <Compile Include="Tray\ITrayMenu.cs" />
