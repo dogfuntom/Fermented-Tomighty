@@ -42,6 +42,7 @@ xcopy /f NOTICE.txt %dest%
 xcopy /f %src%\Tomighty.Windows.exe %dest%
 xcopy /f %src%\Tomighty.Core.dll %dest%
 xcopy /f %src%\Microsoft.Toolkit.Uwp.Notifications.dll %dest%
+xcopy /f %src%\System.ValueTuple.dll %dest%
 xcopy /f /s %src%\Resources %dest%\Resources
 xcopy /f Tomighty.Update.Swap\bin\Release\Tomighty.Update.Swap.exe %dest%
 

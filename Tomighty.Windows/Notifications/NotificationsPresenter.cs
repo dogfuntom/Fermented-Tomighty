@@ -5,8 +5,10 @@
 //  http://www.apache.org/licenses/LICENSE-2.0.txt
 //
 
+using DesktopNotifications;
 using Tomighty.Events;
 using Tomighty.Windows.Events;
+using Tomighty.Windows.Timer;
 using Windows.UI.Notifications;
 
 namespace Tomighty.Windows.Notifications
@@ -15,7 +17,7 @@ namespace Tomighty.Windows.Notifications
     {
         private readonly IPomodoroEngine pomodoroEngine;
         private readonly IUserPreferences userPreferences;
-        private readonly ToastNotifier toastNotifier = ToastNotificationManager.CreateToastNotifier("Tomighty");
+        private readonly ToastNotifier toastNotifier = DesktopNotificationManagerCompat.CreateToastNotifier();
 
         public NotificationsPresenter(IPomodoroEngine pomodoroEngine, IUserPreferences userPreferences, IEventHub eventHub)
         {
@@ -42,23 +44,10 @@ namespace Tomighty.Windows.Notifications
             if (@event.IsIntervalCompleted && userPreferences.ShowToastNotifications)
             {
                 var toast = Toasts.IntervalCompleted(@event.IntervalType, pomodoroEngine.SuggestedBreakType);
-                toast.Activated += OnToastActivated;
-                toastNotifier.Show(toast);
-            }
-        }
 
-        private void OnToastActivated(ToastNotification sender, object args)
-        {
-            if (args is ToastActivatedEventArgs)
-            {
-                var activation = args as ToastActivatedEventArgs;
-
-                if (Toasts.TimerAction.WithArgs.ContainsKey(activation.Arguments))
-                {
-                    var timerAction = Toasts.TimerAction.WithArgs[activation.Arguments];
-
-                    pomodoroEngine.StartTimer(timerAction.IntervalType);
-                }
+                TimerWindow.DispatcherUi.BeginInvoke(new System.Action
+                        (() => toastNotifier.Show(toast))
+                   );
             }
         }
     }

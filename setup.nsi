@@ -1,6 +1,10 @@
+ShowInstDetails show
+
 ;======================================================
 ; Includes
 
+  !include LogicLib.nsh
+  !include shortcut-properties.nsh
   !include MUI.nsh
   !include Sections.nsh
   !include FileFunc.nsh
@@ -69,22 +73,47 @@ Section "Tomighty"
     File "${BUILD_DIR}\Tomighty.Update.Swap.exe"
     File "${BUILD_DIR}\Tomighty.Core.dll"
     File "${BUILD_DIR}\Microsoft.Toolkit.Uwp.Notifications.dll"
+    File "${BUILD_DIR}\System.ValueTuple.dll"
     File "${BUILD_DIR}\NOTICE.txt"
     File "${BUILD_DIR}\LICENSE.txt"
     File /r "${BUILD_DIR}\Resources"
     WriteUninstaller $INSTDIR\uninstall.exe
+
+    ;SetRegView 64 ;If the Toast-Application is 64 Bit
+    WriteRegStr HKLM "SOFTWARE\Classes\CLSID\{f1c09466-e472-45be-8248-c88309824a46}\LocalServer32" "" "C:\ProgramFiles\Snoretoast.exe" ; Add the needed Registry Key (https://docs.microsoft.com/en-us/windows/win32/com/localserver32)
+
 SectionEnd
 
 Section "Start menu shortcuts"
     SetShellVarContext all
     CreateDirectory "$SMPROGRAMS\${PRODUCT_NAME}"
     CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\Tomighty.lnk" "$INSTDIR\Tomighty.Windows.exe" "" "$INSTDIR\Tomighty.Windows.exe" 0
+
+    !insertmacro ShortcutSetToastProperties "$SMPROGRAMS\${PRODUCT_NAME}\Tomighty.lnk" "{f1c09466-e472-45be-8248-c88309824a46}" "Tomighty"
+    pop $0
+    ${If} $0 <> 0
+      MessageBox MB_ICONEXCLAMATION "Shortcut-Attributes to enable Toast Messages couldn't be set"
+      SetErrors
+      Abort
+    ${EndIf}
+    DetailPrint Returncode=$0
+
     CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
 SectionEnd
 
 Section "Desktop shortcut"
     SetShellVarContext all
     CreateShortCut "$DESKTOP\Tomighty.lnk" "$INSTDIR\Tomighty.Windows.exe" "" "$INSTDIR\Tomighty.Windows.exe" 0
+
+    !insertmacro ShortcutSetToastProperties "$DESKTOP\Tomighty.lnk" "{f1c09466-e472-45be-8248-c88309824a46}" "Tomighty"
+    pop $0
+    ${If} $0 <> 0
+      MessageBox MB_ICONEXCLAMATION "Shortcut-Attributes to enable Toast Messages couldn't be set"
+      SetErrors
+      Abort
+    ${EndIf}
+    DetailPrint Returncode=$0
+
 SectionEnd
 
 ; Installer functions
@@ -110,6 +139,7 @@ Section "uninstall"
   RMDir /r "$SMPROGRAMS\${PRODUCT_NAME}"
   RMDir /r "$INSTDIR"
   DeleteRegKey HKLM ${REG_UNINSTALL}
+  DeleteRegKey HKLM "SOFTWARE\Classes\CLSID\{f1c09466-e472-45be-8248-c88309824a46}\LocalServer32"
 SectionEnd
 
 Function .onInit
