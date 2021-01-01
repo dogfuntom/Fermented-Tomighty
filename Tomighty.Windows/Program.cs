@@ -7,6 +7,8 @@
 
 using System;
 using System.Windows.Forms;
+using DesktopNotifications;
+using Tomighty.Windows.Notifications;
 
 namespace Tomighty.Windows
 {
@@ -15,6 +17,11 @@ namespace Tomighty.Windows
         [STAThread]
         static void Main()
         {
+            // Register AUMID and COM server (for Desktop Bridge apps, this no-ops)
+            DesktopNotificationManagerCompat.RegisterAumidAndComServer<MyNotificationActivator>("Tomighty");
+            // Register COM server and activator type
+            DesktopNotificationManagerCompat.RegisterActivator<MyNotificationActivator>();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             AppDomain.CurrentDomain.UnhandledException += (sender, args) => HandleUnhandledException(args.ExceptionObject as Exception);

@@ -19,7 +19,7 @@ namespace Tomighty.Windows.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -251,16 +251,17 @@ namespace Tomighty.Windows.Properties {
         ///&lt;toast launch=&quot;tomighty&quot;&gt;
         ///  &lt;visual&gt;
         ///    &lt;binding template=&quot;ToastGeneric&quot;&gt;
-        ///      &lt;text&gt;First time using Tomighty?&lt;/text&gt;
-        ///      &lt;text&gt;There should be a tomato-shaped icon somewhere in your task bar.&lt;/text&gt;
-        ///      &lt;text&gt;Start by clicking on it. The left button shows the menu.&lt;/text&gt;
+        ///      &lt;text&gt;Tomighty Updated&lt;/text&gt;
+        ///      &lt;text&gt;A new version of Tomighty has been automatically installed&lt;/text&gt;
         ///      &lt;image src=&apos;{image_src}&apos; placement=&apos;appLogoOverride&apos;/&gt;
         ///    &lt;/binding&gt;
         ///  &lt;/visual&gt;
         ///  &lt;actions&gt;
-        ///    &lt;action content=&quot;Got It&quot; arguments=&quot;dismiss&quot; /&gt;
+        ///    &lt;action content=&quot;OK&quot; arguments=&quot;dismiss&quot; /&gt;
         ///  &lt;/actions&gt;
-        ///  &lt;audio src=&quot;ms-winsound [rest of string was truncated]&quot;;.
+        ///  &lt;audio src=&quot;ms-winsoundevent:Notification.Default&quot;/&gt;
+        ///&lt;/toast&gt;
+        ///.
         /// </summary>
         internal static string toast_template_app_updated {
             get {
