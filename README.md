@@ -1,24 +1,21 @@
 Tomighty for Windows
 ====================
 
-Available for download at http://www.tomighty.org
+This is a potential revival of the .NET version of Tomighty. Why potential? Because I'm not yet sure if I'll begin it.
 
-This repository contains the source code for the .NET version of Tomighty.
-If you are looking for the source code of the old, multiplatform (Java) version, see https://github.com/ccidral/tomighty
+There's no intention of keeping it compatible with the original.
 
 Development Workflow
 ====================
 
-We follow the development model presented by Vincent Driessen:
+~~We follow the development model presented by Vincent Driessen:~~ The original project followed the development model presented by Vincent Driessen.
 
-http://nvie.com/posts/a-successful-git-branching-model/
+As later advised by the same Vincent Driessen, this project will use [GitHub Flow](https://guides.github.com/introduction/flow/) instead. If it'd begin at all.
 
 Discuss
 =======
 
-For development related discussions, please subscribe to:
-
-https://groups.google.com/forum/#!forum/tomighty-developers
+See the Discussions tab. Tip: press `g g` keyboard shortcut to go there.
 
 License
 =======
