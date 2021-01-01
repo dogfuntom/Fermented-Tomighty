@@ -1,4 +1,4 @@
-Tomighty for Windows
+Fermented Tomighty
 ====================
 
 This is a potential revival of the .NET version of Tomighty. Why potential? Because I'm not yet sure if I'll begin it.
