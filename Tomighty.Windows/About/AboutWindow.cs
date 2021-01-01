@@ -8,11 +8,10 @@
 using System;
 using System.IO;
 using System.Reflection;
-using System.Windows.Forms;
 
 namespace Tomighty.Windows.About
 {
-    public partial class AboutWindow : Form
+    public partial class AboutWindow : BaseWindow
     {
         public AboutWindow()
         {
