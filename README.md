@@ -21,3 +21,8 @@ License
 =======
 
 Tomighty for Windows is licensed under the terms of the Apache License 2.0. Read it here: https://www.apache.org/licenses/LICENSE-2.0.html
+
+Changes
+=======
+
+No changes so far (in the main branch). The project didn't begin yet.
