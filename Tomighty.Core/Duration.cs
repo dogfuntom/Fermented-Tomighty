@@ -40,5 +40,15 @@ namespace Tomighty
 
         public static bool operator ==(Duration a, Duration b) => a.Seconds == b.Seconds;
         public static bool operator !=(Duration a, Duration b) => a.Seconds != b.Seconds;
+
+        public override bool Equals(object obj)
+        {
+            return obj is Duration other && Seconds == other.Seconds;
+        }
+
+        public override int GetHashCode()
+        {
+            return Seconds;
+        }
     }
 }

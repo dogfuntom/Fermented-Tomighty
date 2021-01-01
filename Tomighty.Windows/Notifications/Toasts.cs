@@ -15,9 +15,9 @@ namespace Tomighty.Windows.Notifications
 {
     internal static class Toasts
     {
-        private static readonly string RedTomatoImage = new Uri(Path.GetFullPath(@"Resources\Toasts\image_toast_tomato_red.png")).AbsoluteUri;
-        private static readonly string GreenTomatoImage = new Uri(Path.GetFullPath(@"Resources\Toasts\image_toast_tomato_green.png")).AbsoluteUri;
-        private static readonly string BlueTomatoImage = new Uri(Path.GetFullPath(@"Resources\Toasts\image_toast_tomato_blue.png")).AbsoluteUri;
+        private static readonly string RedTomatoImage = new Uri(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Toasts\image_toast_tomato_red.png")).AbsoluteUri;
+        private static readonly string GreenTomatoImage = new Uri(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Toasts\image_toast_tomato_green.png")).AbsoluteUri;
+        private static readonly string BlueTomatoImage = new Uri(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Toasts\image_toast_tomato_blue.png")).AbsoluteUri;
         private static readonly XmlDocument PomodoroCompletedTakeShortBreakTemplate = FillIntervalCompletedTemplate("Pomodoro", RedTomatoImage, TimerAction.StartShortBreak);
         private static readonly XmlDocument PomodoroCompletedTakeLongBreakTemplate = FillIntervalCompletedTemplate("Pomodoro", RedTomatoImage, TimerAction.StartLongBreak);
         private static readonly XmlDocument ShortBreakCompletedTemplate = FillIntervalCompletedTemplate("Short break", GreenTomatoImage, TimerAction.StartPomodoro);

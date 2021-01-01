@@ -9,10 +9,11 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.Windows.Threading;
 
 namespace Tomighty.Windows.Timer
 {
-    public partial class TimerWindow : Form
+    public partial class TimerWindow : BaseWindow
     {
         public static readonly Color DarkGray = Color.FromArgb(41, 41, 41);
         public static readonly Color Red = Color.FromArgb(168, 32, 41);
@@ -26,8 +27,11 @@ namespace Tomighty.Windows.Timer
         private readonly Action<string> UpdateTitleDelegate;
         private readonly Action<string, Action> UpdateTimerButtonTextDelegate;
 
+        public static Dispatcher DispatcherUi;
+
         public TimerWindow()
         {
+            DispatcherUi = Dispatcher.CurrentDispatcher;
             InitializeComponent();
 
             currentColorScheme = CreateColorScheme(DarkGray);

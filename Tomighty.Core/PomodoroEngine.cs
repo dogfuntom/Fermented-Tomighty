@@ -15,6 +15,7 @@ namespace Tomighty
         private readonly IUserPreferences userPreferences;
         private readonly IEventHub eventHub;
         private int _pomodoroCount;
+        public static PomodoroEngine pomodoroEngine;
 
         public PomodoroEngine(ITimer timer, IUserPreferences userPreferences, IEventHub eventHub)
         {
@@ -23,6 +24,7 @@ namespace Tomighty
             this.eventHub = eventHub;
 
             eventHub.Subscribe<TimerStopped>(OnTimerStopped);
+            pomodoroEngine = this;
         }
 
         public int PomodoroCount

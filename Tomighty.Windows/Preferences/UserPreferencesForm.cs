@@ -5,11 +5,9 @@
 //  http://www.apache.org/licenses/LICENSE-2.0.txt
 //
 
-using System.Windows.Forms;
-
 namespace Tomighty.Windows.Preferences
 {
-    public partial class UserPreferencesForm : Form
+    public partial class UserPreferencesForm : BaseWindow
     {
         private IUserPreferences userPreferences;
 
